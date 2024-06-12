@@ -10,8 +10,9 @@ import {
   Validators,
 } from '@angular/forms';
 import { Observable } from 'rxjs';
+import { API_URL } from '../app.constant';
 
-const AUTH_API = 'http://localhost:8080/api/auth/';
+const AUTH_API = API_URL + '/api/auth/';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' }),

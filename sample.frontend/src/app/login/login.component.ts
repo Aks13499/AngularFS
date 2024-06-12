@@ -12,8 +12,9 @@ import { AuthenticationServiceService } from '../service/authentication/authenti
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { StorageService } from '../service/authentication/storage.service';
+import { API_URL } from '../app.constant';
 
-const AUTH_API = 'http://localhost:8080/api/auth/';
+const AUTH_API = API_URL + '/api/auth/';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' }),

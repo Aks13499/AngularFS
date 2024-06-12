@@ -16,6 +16,7 @@ import { AuthenticationServiceService } from './service/authentication/authentic
 import { JwtModule } from '@auth0/angular-jwt';
 import { InterceptorService } from './service/http/interceptor.service';
 import { SignupComponent } from './signup/signup.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { SignupComponent } from './signup/signup.component';
     ErrorComponent,
     HeaderComponent,
     FooterComponent,
-    SignupComponent
+    SignupComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

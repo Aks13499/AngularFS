@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { HttpServiceService, Message } from '../service/http/http-service.service';
 import { AuthenticationServiceService } from '../service/authentication/authentication-service.service';
 import { StorageService } from '../service/authentication/storage.service';
+import { EventBusService } from '../service/shared/event-bus.service';
+import { EventData } from '../service/shared/event.class';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,7 +12,7 @@ import { StorageService } from '../service/authentication/storage.service';
 })
 export class DashboardComponent {
 
-constructor(public httpService: HttpServiceService, public authenticationService: AuthenticationServiceService, public storageService: StorageService ) {}
+constructor(public httpService: HttpServiceService, public authenticationService: AuthenticationServiceService, public storageService: StorageService, private eventBusService: EventBusService ) {}
 
   msg: string = "";
 
@@ -23,7 +25,6 @@ constructor(public httpService: HttpServiceService, public authenticationService
   }
   
   logout(): void {
-    console.log(this.storageService.getUser());
-    this.authenticationService.logout().subscribe();
+    this.eventBusService.emit(new EventData('logout', null));
   }
 }
