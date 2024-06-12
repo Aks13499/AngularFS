@@ -1,0 +1,99 @@
+<div class="container-fluid">
+  <div class="card">
+    <div class="card-header">PowerBase</div>
+    <div class="card-body">
+      <h5 class="card-title">Signup</h5>
+      <form
+        [formGroup]="registerForm"
+        novalidate
+        method="post"
+        enctype="multipart/form-data"
+        (ngSubmit)="submitForm()"
+      >
+        <div class="col">
+          <div class="row">
+            <i class="bi bi-person-circle"></i>
+            <div class="form-group">
+              <input
+                class="form-control"
+                type="text"
+                name="username"
+                formControlName="username"
+                required="required"
+                [ngClass]="{ 'is-invalid': submitted && f['username'].errors }"
+              />
+              <div
+                *ngIf="submitted && f['username'].errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="f['username'].errors?.['required']">
+                  Username is required
+                </div>
+                <div *ngIf="f['username'].errors?.['minlength']">
+                  Username must be at least 3 characters long
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <i class="bi bi-envelope-fill"></i>
+            <div class="form-group">
+              <input
+                class="form-control"
+                type="text"
+                name="email"
+                formControlName="email"
+                required="required"
+                [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"
+              />
+              <div
+                *ngIf="submitted && f['email'].errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="f['email'].errors?.['required']">
+                  Email is required
+                </div>
+                <div *ngIf="f['email'].errors?.['email']">Email is invalid</div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <i class="bi bi-shield-lock"></i>
+            <div class="form-group">
+              <input
+                class="form-control"
+                type="password"
+                name="password"
+                formControlName="password"
+                required="required"
+                [ngClass]="{ 'is-invalid': submitted && f['password'].errors }"
+              />
+              <div
+                *ngIf="submitted && f['password'].errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="f['password'].errors?.['required']">
+                  Password is required
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row" style="margin-top: 2vw">
+            <button
+              type="button"
+              (click)="submitForm()"
+              class="btn btn-primary"
+            >
+              Signup
+            </button>
+            <div style="width: 0.2vw"></div>
+            <span>Already Registered?</span>
+            <button type="button" routerLink="/login" class="btn btn-primary">
+              Login
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
