@@ -9,7 +9,7 @@ import { SignupComponent } from './signup/signup.component';
 const routes: Routes = [
   {
     path: '',
-    component: LoginComponent
+    component: DashboardComponent
   },
   {
     path: 'login',
@@ -22,7 +22,7 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
-    canActivate:[RouterRouterGuardServiceService]
+    // canActivate:[RouterRouterGuardServiceService]
   },
   {
     path: '**',

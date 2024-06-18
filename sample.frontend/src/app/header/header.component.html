@@ -1,7 +1,62 @@
-<div class="container-fluid">
-  <nav class="navbar navbar-expand-lg bg-light">
-    <div class="container-fluid">
-      
+<header class="bg-dark text-white">
+  <div class="container-fluid">
+    <div class="content">
+      <a
+        href="/"
+        class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none"
+      >
+        <span class="loader"></span>
+      </a>
+
+      <ul class="nav">
+        <li><a routerLink="/" class="nav-link px-2 text-secondary">Home</a></li>
+        <li><a routerLink="/" class="nav-link px-2 text-white">Features</a></li>
+        <li><a routerLink="/" class="nav-link px-2 text-white">Pricing</a></li>
+        <li><a routerLink="/" class="nav-link px-2 text-white">FAQs</a></li>
+        <li><a routerLink="/" class="nav-link px-2 text-white">About</a></li>
+      </ul>
+
+      <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+        <input
+          type="search"
+          class="form-control form-control-dark"
+          placeholder="Search..."
+          aria-label="Search"
+        />
+      </form>
+
+      <div *ngIf="!isLoggedIn" class="text-end">
+        <button
+          type="button"
+          class="btn btn-outline-light me-2"
+          routerLink="/login"
+        >
+          Login
+        </button>
+        <button type="button" class="btn btn-warning" routerLink="/signup">
+          Sign-up
+        </button>
+      </div>
+      <div *ngIf="isLoggedIn" class="dropdown text-end">
+        <div class="dropdown">
+          <a
+            href="/"
+            class="d-flex align-items-center link-light text-decoration-none dropdown-toggle"
+            dropdownToggle
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <!-- <img src="" alt="" width="32" height="32" class="rounded-circle" /> -->
+             <i class="bi bi-person-circle light"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" (click)="logout()" href="#">Logout</a></li>
+          </ul>
+        </div>
+      </div>
     </div>
-  </nav>
-</div>
+  </div>
+</header>

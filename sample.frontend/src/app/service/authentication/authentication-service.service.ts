@@ -42,7 +42,7 @@ export class AuthenticationServiceService {
 
   logout(): Observable<any> {
     this.storageService.clean();   
-    this.router.navigate(['\login']); 
+    this.router.navigate(['/dashboard']); 
     return this.httpClient.post(AUTH_API + 'signout', { }, httpOptions);
   }
 

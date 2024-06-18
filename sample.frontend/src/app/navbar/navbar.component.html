@@ -1,1 +1,11 @@
-<p>navbar works!</p>
+<div class="navbar-container">
+  <button class="toggle-btn" (click)="toggleNavbar()">Toggle Navbar</button>
+  <div class="navbar" [ngClass]="{ collapsed: isCollapsed }">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </div>
+</div>
